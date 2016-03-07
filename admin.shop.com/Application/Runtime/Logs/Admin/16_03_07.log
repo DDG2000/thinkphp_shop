@@ -169,3 +169,24 @@ ERR: 参数错误或者未定义:id
 [ 2016-03-07T23:07:02+08:00 ] 127.0.0.1 /index.php/Supplier/edit.html
 ERR: 参数错误或者未定义:id
 
+[ 2016-03-07T23:34:20+08:00 ] 127.0.0.1 /index.php/Supplier/changeStatus.html?id=1&status=0
+ERR: 非法操作:changeStatus
+
+[ 2016-03-07T23:36:03+08:00 ] 127.0.0.1 /index.php/Supplier/changeStatus.html?id=1&status=0
+ERR: 非法操作:changeStatus
+
+[ 2016-03-07T23:36:10+08:00 ] 127.0.0.1 /index.php/Supplier/changeStatus.html?id=2&status=0
+ERR: 非法操作:changeStatus
+
+[ 2016-03-07T23:37:12+08:00 ] 127.0.0.1 /index.php/Supplier/changeStatus.html?id=2&status=0
+ERR: 非法操作:changeStatus
+
+[ 2016-03-07T23:37:13+08:00 ] 127.0.0.1 /index.php/Supplier/changeStatus.html?id=2&status=0
+ERR: 非法操作:changeStatus
+
+[ 2016-03-07T23:49:27+08:00 ] 127.0.0.1 /index.php/Supplier/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ORDER BY sort asc LIMIT 0,3' at line 1
+
+[ 2016-03-07T23:49:27+08:00 ] 127.0.0.1 /index.php/Supplier/index.html
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ORDER BY sort asc LIMIT 0,3' at line 1
+

@@ -9,7 +9,7 @@
 namespace Admin\Controller;
 
 
-class SupplierController extends \Think\Controller
+class BrandController extends \Think\Controller
 {
     //初始化自动完成，分派数据显示标题
     //自动实例化模型
@@ -17,15 +17,15 @@ class SupplierController extends \Think\Controller
     protected function _initialize(){
     //标题数组
     $meta_title=array(
-        'index'=>'供货商管理',
-        'add'=>'添加供货商',
-        'edit'=>'编辑供货商',
-        'delete'=>'删除供货商',
+        'index'=>'商品管理',
+        'add'=>'添加商品',
+        'edit'=>'编辑商品',
+        'delete'=>'删除商品',
     );
-    //方法不在数组中，默认为供货商管理
-    $meta_title=isset($meta_title[ACTION_NAME])?$meta_title[ACTION_NAME]:'供货商管理';
+    //方法不在数组中，默认为商品管理
+    $meta_title=isset($meta_title[ACTION_NAME])?$meta_title[ACTION_NAME]:'商品管理';
     $this->assign('meta_title',$meta_title);
-    $this->_model=D('Supplier');
+    $this->_model=D('Brand');
     }
 
     public function index(){
@@ -54,7 +54,7 @@ class SupplierController extends \Think\Controller
         }
     }
 
-    //供货商的修改
+    //商品的修改
     public function edit($id){
         if(IS_POST){
             if($this->_model->create()===false){
@@ -72,7 +72,7 @@ class SupplierController extends \Think\Controller
             $this->display('add');
         }
     }
-    //执行供货商的删除操作，将状态改为-1
+    //执行商品的删除操作，将状态改为-1
     //或则执行修改操作，将状态在0/1之间转换
     public function delete($id,$status=-1){
         if($this->_model->changeStatus($id,$status)===false){

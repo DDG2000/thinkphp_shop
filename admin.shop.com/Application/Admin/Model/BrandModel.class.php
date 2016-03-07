@@ -9,12 +9,12 @@
 namespace Admin\Model;
 
 
-class SupplierModel extends \Think\Model
+class BrandModel extends \Think\Model
 {
     //自动验证
     protected $_validate=array(
-        array('name','require','供货商名字不能为空'),
-        array('name','','供货商名字以存在',self::EXISTS_VALIDATE,'unique'),
+        array('name','require','商品名字不能为空'),
+        array('name','','商品名字已存在',self::EXISTS_VALIDATE,'unique'),
     );
 
     //获取列表
@@ -31,7 +31,7 @@ class SupplierModel extends \Think\Model
         return array('page_html'=>$page_html,'rows'=>$rows);
     }
 
-    //修改或删除供货商，删除的话名字加上_del
+    //修改或删除商品，删除的话名字加上_del
     /**
      * @param $id 修改的id
      * @param int $status 修改后的状态
