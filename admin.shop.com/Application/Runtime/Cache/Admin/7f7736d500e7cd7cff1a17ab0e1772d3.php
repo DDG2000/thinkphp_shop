@@ -5,6 +5,7 @@
 <title>ECSHOP 管理中心 - <?php echo ($meta_title); ?> </title>
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://admin.shop.com/Public/IMG/top_loader.gif" type="image/x-icon">
 <link href="http://admin.shop.com/Public/CSS/general.css" rel="stylesheet" type="text/css" />
 <link href="http://admin.shop.com/Public/CSS/main.css" rel="stylesheet" type="text/css" />
 </head>
