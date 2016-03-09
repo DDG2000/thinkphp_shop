@@ -8,6 +8,9 @@
     <link rel="shortcut icon" href="http://admin.shop.com/Public/IMG/top_loader.gif" type="image/x-icon">
 <link href="http://admin.shop.com/Public/CSS/general.css" rel="stylesheet" type="text/css" />
 <link href="http://admin.shop.com/Public/CSS/main.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 </head>
 <body>
 <h1>

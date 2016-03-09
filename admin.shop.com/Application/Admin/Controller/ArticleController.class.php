@@ -89,12 +89,11 @@ class ArticleController extends \Think\Controller
     //执行文章的删除操作，将状态改为-1
     //或则执行修改操作，将状态在0/1之间转换
     public function delete($id,$status=-1){
-        var_dump($id,$status);
-        exit;
         if($this->_model->changeStatus($id,$status)===false){
             $this->error($this->_model->getError());
         }else{
             if($status==-1){
+                echo 11;
                 $this->success('删除成功',U('index'));
             }else{
                 $this->success('修改成功',U('index'));

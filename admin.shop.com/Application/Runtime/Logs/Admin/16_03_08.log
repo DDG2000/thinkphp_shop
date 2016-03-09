@@ -157,3 +157,6 @@ ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in wh
 [ 2016-03-08T16:27:02+08:00 ] 127.0.0.1 /index.php/Article/index.html
 ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous
 
+[ 2016-03-08T17:32:10+08:00 ] 127.0.0.1 /index.php/Article/index/p/4.html
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'field list'
+

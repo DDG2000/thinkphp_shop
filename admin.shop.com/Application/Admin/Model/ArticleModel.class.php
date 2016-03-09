@@ -29,10 +29,13 @@ class ArticleModel extends \Think\Model
         $count=$this->where($cond)->where('status<>-1')->count();
         $rows=$this->where($cond)->where('status<>-1')->order('sort asc')->page($page,C('PAGE_SIZE'))->select();
 //        dump($rows);
+
         $page=new \Think\Page($count,C('PAGE_SIZE'));
         $page->setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
         $page_html=$page->show();
-        return array('page_html'=>$page_html,'rows'=>$rows);
+        $article_categories = M('ArticleCategory')->getField('id,catename');
+
+        return array('page_html'=>$page_html,'rows'=>$rows,'article_categories'=>$article_categories);
     }
 
     //修改或删除文章，删除的话名字加上_del

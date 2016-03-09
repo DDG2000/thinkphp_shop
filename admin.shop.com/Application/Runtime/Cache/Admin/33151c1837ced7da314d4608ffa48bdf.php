@@ -7,6 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="http://admin.shop.com/Public/CSS/general.css" rel="stylesheet" type="text/css" />
 <link href="http://admin.shop.com/Public/CSS/main.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" type="text/css" href="http://admin.shop.com/Public/CSS/page.css" />
 </head>
 <body>
@@ -39,7 +42,7 @@
             <?php if(is_array($rows)): foreach($rows as $key=>$row): ?><tr>
                 <td class="first-cell"><?php echo ($row["id"]); ?></td>
                 <td class="first-cell"><?php echo ($row["name"]); ?></td>
-                <td class="first-cell"><?php echo ($row["article_category_id"]); ?></td>
+                <td class="first-cell"><?php echo ($article_categories[$row[article_category_id]]); ?></td>
                 <td align="center"><?php echo ($row["intro"]); ?></td>
                 <td align="center"><?php echo ($row["sort"]); ?></td>
                 <td align="center"><img src="http://admin.shop.com/Public/IMG/<?php echo ($row["status"]); ?>.gif" onclick="change_status(<?php echo ($row["id"]); ?>,1-<?php echo ($row["status"]); ?>)"/></td>
@@ -61,7 +64,9 @@
 </form>
 <script type="text/javascript" >
     function change_status(id,status){
-        location.href='<?php echo U('delete');?>?id='+id+'&status='+status;
+        url='<?php echo U("delete");?>?id=' + id + '&status=' + status;
+        console.debug(url);
+        location.href=url;
     }
 </script>
 <div id="footer">
