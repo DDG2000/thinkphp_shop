@@ -2,8 +2,8 @@
 return array(
 	//'配置项'=>'配置值'
     'DEFAULT_MODULE'        =>  'Admin',  // 默认模块
-    'DEFAULT_CONTROLLER'    =>  'Article', // 默认控制器名称
-    'DEFAULT_ACTION'        =>  'index', // 默认操作名称
+    'DEFAULT_CONTROLLER'    =>  'Brand', // 默认控制器名称
+    'DEFAULT_ACTION'        =>  'add', // 默认操作名称
 
     'DB_TYPE'               =>  'mysql',     // 数据库类型
     'DB_HOST'               =>  '127.0.0.1', // 服务器地址
@@ -27,6 +27,7 @@ return array(
         '__CSS__'=>'http://admin.shop.com/Public/CSS',
         '__JS__'=>'http://admin.shop.com/Public/JS',
         '__IMG__'=>'http://admin.shop.com/Public/IMG',
+        '__HTTP__'=>'http://',
     ),
     'PAGE_SIZE'             =>3,
 );

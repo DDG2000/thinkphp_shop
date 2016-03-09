@@ -1,0 +1,9 @@
+[ 2016-03-09T13:44:20+08:00 ] 127.0.0.1 /index.php/Brand/http/://http://www.lining.com/
+ERR: 非法操作:http
+
+[ 2016-03-09T13:46:21+08:00 ] 127.0.0.1 /index.php/Brand/%7Bhttp://%7Dhttp://store.nike.com/
+ERR: 非法操作:{http:
+
+[ 2016-03-09T13:46:38+08:00 ] 127.0.0.1 /index.php/Brand/%7Bhttp://%7Dhttp://store.nike.com/
+ERR: 非法操作:{http:
+

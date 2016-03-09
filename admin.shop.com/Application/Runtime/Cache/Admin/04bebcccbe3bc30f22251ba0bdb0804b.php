@@ -27,8 +27,7 @@
     <div class="list-div" id="listDiv">
         <table cellpadding="3" cellspacing="1">
             <tr>
-                <th>品牌名称</th>
-                <th>品牌网址</th>
+                <th>品牌名称<img src="<?php echo ($row["url"]); ?>"></th>
                 <th>品牌描述</th>
                 <th>排序</th>
                 <th>是否显示</th>
@@ -49,8 +48,7 @@
                 <!--<a href="#" title="编辑">编辑</a> |-->
                 <!--<a href="#" title="编辑">移除</a> -->
                 <!--</td>-->
-                <td class="first-cell"><?php echo ($row["name"]); ?></td>
-                <td align="center"><?php echo ($row["url"]); ?></td>
+                <td class="first-cell"><a href="http://<?php echo ($row["url"]); ?>"><?php echo ($row["name"]); ?></a></td>
                 <td align="center"><?php echo ($row["intro"]); ?></td>
                 <td align="center"><?php echo ($row["sort"]); ?></td>
                 <td align="center"><img src="http://admin.shop.com/Public/IMG/<?php echo ($row["status"]); ?>.gif" onclick="change_status(<?php echo ($row["id"]); ?>,1-<?php echo ($row["status"]); ?>)"/></td>

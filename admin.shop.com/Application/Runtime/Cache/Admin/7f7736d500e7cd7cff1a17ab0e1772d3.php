@@ -33,13 +33,13 @@
                     <input type="text" name="url" maxlength="60" size="40" value="<?php echo ($row["url"]); ?>" />
                 </td>
             </tr>
-            <!--<tr>-->
-                <!--<td class="label">品牌LOGO</td>-->
-                <!--<td>-->
-                    <!--<input type="file" name="brand_logo" id="logo" size="45" disabled="false"><br/>-->
-                    <!--<span class="notice-span" style="display:block"  id="warn_brandlogo">请上传图片，做为品牌的LOGO！</span>-->
-                <!--</td>-->
-            <!--</tr>-->
+            <tr>
+                <td class="label">品牌LOGO</td>
+                <td>
+                    <input type="file" name="logo" id="logo" size="45" ><br/>
+                    <span class="notice-span" style="display:block"  id="warn_brandlogo">请上传图片，做为品牌的LOGO！</span>
+                </td>
+            </tr>
             <tr>
                 <td class="label">品牌描述</td>
                 <td>
