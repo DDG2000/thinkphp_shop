@@ -85,24 +85,24 @@
 <script type="text/javascript" src="__LAYER__/layer.js"></script>
 <script type="text/javascript">
     $(function () {
-        $(':input[name=status]').val([<?php echo ((isset($row["status "]) && ($row["status "] !== ""))?($row["status "]): 1); ?>]);
+        $(':input[name=status]').val([<?php echo ((isset($row["status "]) && ($row["status "] !== ""))?($row["status "]): 1); ?>]);//状态单选框赋值,回显选中
         $('#file_upload').uploadify({
             'swf'      : 'http://admin.shop.com/Public/EXT/uploadify/uploadify.swf',
             'uploader' : '<?php echo U("Upload/index");?>', //上传控制器
             'fileObjName':'logo',    //上传文件名
             'buttonText':'上传',       //更改按键字
-            'multi':false,
-            'overrideEvents':['onUploadSuccecc','onUploadError'],
+//            'multi':false,        //批量上传
+            'overrideEvents':['onUploadSuccecc','onUploadError'],   //重写回调函数
             'onUploadError':function(file,errorCode,errorMsg,errorString){
                 console.debug(arguments);
             },
 
-            'onUploadSuccess':function(file,data,response){
+            'onUploadSuccess':function(file,data,response){     //执行成功回调函数
 //                data是字符串,要转jason对象
-                data= $.parseJSON(data);
-                if(data.status){
-                    $('#logo').val(data.file_url);
-                }else{
+                data= $.parseJSON(data);                 //见data转换成json对象
+                if(data.status){                            //判断接送中status值
+                    $('#logo').val(data.file_url);          //status成立则给logo标签赋值地址
+                }else{                                          //不成立返回错误信息
                     alert(data.msg);
                 }
                  console.debug(data);

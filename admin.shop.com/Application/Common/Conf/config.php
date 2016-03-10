@@ -3,7 +3,7 @@ define('DOMAIN', 'http://admin.shop.com');  //定义根目录
 return array(
     //'配置项'=>'配置值'
     'DEFAULT_MODULE' => 'Admin',  // 默认模块
-    'DEFAULT_CONTROLLER' => 'Brand', // 默认控制器名称
+    'DEFAULT_CONTROLLER' => 'GoodsCategory', // 默认控制器名称
     'DEFAULT_ACTION' => 'add', // 默认操作名称
 
     'DB_TYPE' => 'mysql',     // 数据库类型
@@ -30,7 +30,10 @@ return array(
         '__IMG__' => DOMAIN . '/Public/IMG',
         '__HTTP__' => 'http://',
         '__UPLOAD_URL__' => DOMAIN . '/Uploads',    //上传文件的保存位置
-        '__UPLOADIFY__' => DOMAIN . '/Public/EXT/uploadify'  //uploadifu插件路径
+        '__UPLOADIFY__' => DOMAIN . '/Public/EXT/uploadify',  //uploadifu插件路径
+        '__LAYER__' => DOMAIN . '/Public/EXT/layer',  //layer插件路径
+        '__ZTREE__' => DOMAIN . '/Public/EXT/ztree',  //ztree插件路径
+
     ),
     'PAGE_SIZE' => 3,
     'UPLOAD_SETTING' => array(
