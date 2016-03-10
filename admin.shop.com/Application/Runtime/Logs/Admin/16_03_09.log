@@ -7,3 +7,9 @@ ERR: 非法操作:{http:
 [ 2016-03-09T13:46:38+08:00 ] 127.0.0.1 /index.php/Brand/%7Bhttp://%7Dhttp://store.nike.com/
 ERR: 非法操作:{http:
 
+[ 2016-03-09T17:48:17+08:00 ] 127.0.0.1 /index.php/Brand/add.html
+ERR: Think\Controller:getError方法不存在！
+
+[ 2016-03-09T17:48:41+08:00 ] 127.0.0.1 /index.php/Brand/add.html
+ERR: Think\Controller:getError方法不存在！
+

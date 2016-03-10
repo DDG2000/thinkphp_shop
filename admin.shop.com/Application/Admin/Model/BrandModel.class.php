@@ -48,4 +48,28 @@ class BrandModel extends \Think\Model
         }
        return $this->save($data);
     }
+
+    /**
+     * 添加品牌
+     */
+    public function addBrand($logo){
+        $this->data['logo']=$logo;
+        if(empty($logo)){
+            unset($this->data['logo']);
+        }
+        return $this->add();
+    }
+
+    /**
+     * 修改跟新品牌
+     * @param $logo
+     * @return bool
+     */
+    public function updateBrand($logo){
+        $this->data['logo']=$logo;
+        if(empty($logo)){
+            unset($this->data['logo']);
+        }
+        return $this->save();
+    }
 }

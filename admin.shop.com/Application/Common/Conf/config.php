@@ -1,4 +1,5 @@
 <?php
+define('DOMAIN','http://admin.shop.com');  //定义根目录
 return array(
 	//'配置项'=>'配置值'
     'DEFAULT_MODULE'        =>  'Admin',  // 默认模块
@@ -24,10 +25,28 @@ return array(
     'PAGE_SIZE'             => 3,
     'URL_MODEL'             =>  1,       // URL访问模式,可选参数0、1、2、3,代表以下四种模式：
     'TMPL_PARSE_STRING'=>array(
-        '__CSS__'=>'http://admin.shop.com/Public/CSS',
-        '__JS__'=>'http://admin.shop.com/Public/JS',
-        '__IMG__'=>'http://admin.shop.com/Public/IMG',
+        '__CSS__'=>DOMAIN.'/Public/CSS',
+        '__JS__'=>DOMAIN.'/Public/JS',
+        '__IMG__'=>DOMAIN.'/Public/IMG',
         '__HTTP__'=>'http://',
+        '__UPLOAD_URL__'=>DOMAIN.'/Uploads',    //上传文件的保存位置
+        '__UPLOADIFY__'=>DOMAIN.'/Public/EXT/uploadify'  //uploadifu插件路径
     ),
     'PAGE_SIZE'             =>3,
+    'UPLOAD_SETTING'=>array(
+//        'mimes' => array('image/jpeg', 'image/png', 'image/gif'), //允许上传的文件MiMe类型
+        'maxSize' => 2 * 1024 * 1024, //上传的文件大小限制 (0-不做限制)
+        'exts' => array('jpg', 'jpeg', 'gif', 'png'), //允许上传的文件后缀
+        'autoSub' => true, //自动子目录保存文件
+        'subName' => array('date', 'Y-m-d'), //子目录创建方式，[0]-函数名，[1]-参数，多个参数使用数组
+        'rootPath' => './Uploads/', //保存根路径
+        'savePath' => '', //保存路径
+        'saveName' => array('uniqid', ''), //上传文件命名规则，[0]-函数名，[1]-参数，多个参数使用数组
+        'saveExt' => '', //文件保存后缀，空则使用原后缀
+        'replace' => false, //存在同名是否覆盖
+        'hash' => true, //是否生成hash编码
+        'callback' => false, //检测文件是否存在回调，如果存在返回文件信息数组
+        'driver' => '', // 文件上传驱动
+        'driverConfig' => array(), // 上传驱动配置
+    ),
 );

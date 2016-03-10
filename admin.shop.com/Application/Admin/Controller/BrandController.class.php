@@ -42,7 +42,7 @@ class BrandController extends \Think\Controller
 
         $this->display();
     }
-
+    //商品添加
     public function add()
     {
         if (IS_POST) {
@@ -50,8 +50,9 @@ class BrandController extends \Think\Controller
             if ($this->_model->create() === false) {
                 $this->error($this->_model->getError());
             }
+            $logo=$this->_uploadLogo();
             //执行插入数据
-            if ($this->_model->add() === false) {
+            if ($this->_model->addBrand($logo) === false) {
                 $this->error($this->_model->getError());
             }
             $this->success('添加成功', U('index'));
@@ -67,31 +68,9 @@ class BrandController extends \Think\Controller
             if ($this->_model->create() === false) {
                 $this->error($this->_model->getError());
             }
-
-            $config = array(
-                'mimes' => array('image/jpeg','image/png','image/gif'), //允许上传的文件MiMe类型
-                'maxSize' => 1024*1024, //上传的文件大小限制 (0-不做限制)
-                'exts' => array('jpg','jpeg','gif','png'), //允许上传的文件后缀
-                'autoSub' => true, //自动子目录保存文件
-                'subName' => array('date', 'Y-m-d'), //子目录创建方式，[0]-函数名，[1]-参数，多个参数使用数组
-                'rootPath' => './Uploads/', //保存根路径
-                'savePath' => '', //保存路径
-                'saveName' => array('uniqid', ''), //上传文件命名规则，[0]-函数名，[1]-参数，多个参数使用数组
-                'saveExt' => '', //文件保存后缀，空则使用原后缀
-                'replace' => false, //存在同名是否覆盖
-                'hash' => true, //是否生成hash编码
-                'callback' => false, //检测文件是否存在回调，如果存在返回文件信息数组
-                'driver' => '', // 文件上传驱动
-                'driverConfig' => array(), // 上传驱动配置
-            );
-            $upload = new \Think\Upload($config);
-            $file=empty($_FILES['logo']['tmp_name'])?array():$_FILES['logo'];
-            var_dump($file);
-            $file_info=$upload->uploadOne($file);
-            var_dump($file_info);
+            $logo=$this->_uploadLogo();
             //执行保存操作失败
-            exit;
-            if ($this->_model->save() === false) {
+            if ($this->_model->updateBrand($logo) === false) {
                 $this->error($this->_model->getError());
             }
             $this->success('修改成功', U('index'));
@@ -115,5 +94,27 @@ class BrandController extends \Think\Controller
                 $this->success('修改成功', U('index'));
             }
         }
+    }
+    //具体的文件上传，返回文件路径
+    private function _uploadLogo(){
+        //>>2.上传文件参数
+        $config = C('UPLOAD_SETTING');
+
+        //>>1.实例化文件上传类
+        $upload = new \Think\Upload($config);
+        //$_FILES数据提交后生成的文件信息，通过tep_name判断是否上传成功,不成功$file赋初值空数组
+        $file = empty($_FILES['logo']['tmp_name']) ? array() : $_FILES['logo'];
+        //判断$file 是否存在，存在则上传
+        //给$logo赋初值
+        $logo='';
+        if ($file) {
+            //文件上传，传递数组，传递一个文件uploadOne
+            //判断文件上传是否成功，成功后获取拼接$logo值
+            if($file_info = $upload->uploadOne($file)){
+                //获取拼接$logo
+                $logo=$file_info['savepath'].$file_info['savename'];
+            }
+        }
+        return $logo;
     }
 }
