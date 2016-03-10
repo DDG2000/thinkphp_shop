@@ -39,7 +39,7 @@
             </tr>
             <?php if(is_array($rows)): foreach($rows as $key=>$row): ?><tr>
                     <td class="first-cell">
-                        <img src="/Uploads/<?php echo ($row["logo"]); ?>" style="height:44px">
+                        <img src="<?php echo ($row["logo"]); ?>-44" >
                         <a href="http://<?php echo ($row["url"]); ?>"><?php echo ($row["name"]); ?></a>
                     </td>
                     <td align="center"><?php echo ($row["intro"]); ?></td>

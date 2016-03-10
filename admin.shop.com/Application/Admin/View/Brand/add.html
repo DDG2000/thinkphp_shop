@@ -45,11 +45,11 @@
             <tr>
                 <td class="label">品牌LOGO</td>
                 <td>
-                    <input type="hidden" name="logo" value="{$row.logo}" id="logo"><br/>
+                    <input type="hidden" name="logo[]" value="{$row.logo}" id="logo"><br/>
                     <input type="file"  id="file_upload" name="file_upload" multiple="true"><br/>
                     <span class="notice-span" style="display:block" id="warn_brandlogo">请上传图片，做为品牌的LOGO！</span>
                     <notempty name="row.logo">
-                        <img src="__UPLOAD_URL__/{$row.logo}">
+                        <img src="{$row.logo}">
                     </notempty>
                 </td>
             </tr>
@@ -62,7 +62,7 @@
             <tr>
                 <td class="label">排序</td>
                 <td>
-                    <input type="text" name="sort" maxlength="40" size="15" value="{$row.name|default=50}"/>
+                    <input type="text" name="sort" maxlength="40" size="15" value="{$row.sort|default=50}"/>
                 </td>
             </tr>
             <tr>
@@ -87,23 +87,24 @@
 <js href="__LAYER__/layer.js"/>
 <script type="text/javascript">
     $(function () {
-        $(':input[name=status]').val([{$row.status |default= 1}]);
+        $(':input[name=status]').val([{$row.status |default= 1}]);//状态单选框赋值,回显选中
         $('#file_upload').uploadify({
             'swf'      : '__UPLOADIFY__/uploadify.swf',
             'uploader' : '{:U("Upload/index")}', //上传控制器
             'fileObjName':'logo',    //上传文件名
             'buttonText':'上传',       //更改按键字
-            'overrideEvents':['onUploadSuccecc','onUploadError'],
+//            'multi':false,        //批量上传
+            'overrideEvents':['onUploadSuccecc','onUploadError'],   //重写回调函数
             'onUploadError':function(file,errorCode,errorMsg,errorString){
                 console.debug(arguments);
             },
 
-            'onUploadSuccess':function(file,data,response){
+            'onUploadSuccess':function(file,data,response){     //执行成功回调函数
 //                data是字符串,要转jason对象
-                data= $.parseJSON(data);
-                if(data.status){
-                    $('#logo').val(data.file_url);
-                }else{
+                data= $.parseJSON(data);                 //见data转换成json对象
+                if(data.status){                            //判断接送中status值
+                    $('#logo').val(data.file_url);          //status成立则给logo标签赋值地址
+                }else{                                          //不成立返回错误信息
                     alert(data.msg);
                 }
                  console.debug(data);

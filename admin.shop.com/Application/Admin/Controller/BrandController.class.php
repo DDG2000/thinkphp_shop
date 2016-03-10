@@ -50,9 +50,9 @@ class BrandController extends \Think\Controller
             if ($this->_model->create() === false) {
                 $this->error($this->_model->getError());
             }
-            $logo=$this->_uploadLogo();
+//            $logo=$this->_uploadLogo();
             //执行插入数据
-            if ($this->_model->addBrand($logo) === false) {
+            if ($this->_model->add() === false) {
                 $this->error($this->_model->getError());
             }
             $this->success('添加成功', U('index'));
@@ -68,15 +68,17 @@ class BrandController extends \Think\Controller
             if ($this->_model->create() === false) {
                 $this->error($this->_model->getError());
             }
-            $logo=$this->_uploadLogo();
+//            $logo=$this->_uploadLogo();
             //执行保存操作失败
-            if ($this->_model->updateBrand($logo) === false) {
+
+            if ($this->_model->save() === false) {
                 $this->error($this->_model->getError());
             }
             $this->success('修改成功', U('index'));
         } else {
             //展示数据表中的数据
             $row = $this->_model->find($id);
+//            dump($row);
             $this->assign('row', $row);
             $this->display('add');
         }

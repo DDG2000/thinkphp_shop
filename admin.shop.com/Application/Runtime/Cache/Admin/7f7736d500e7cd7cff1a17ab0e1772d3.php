@@ -45,10 +45,10 @@
             <tr>
                 <td class="label">品牌LOGO</td>
                 <td>
-                    <input type="hidden" name="logo" value="<?php echo ($row["logo"]); ?>" id="logo"><br/>
+                    <input type="hidden" name="logo[]" value="<?php echo ($row["logo"]); ?>" id="logo"><br/>
                     <input type="file"  id="file_upload" name="file_upload" multiple="true"><br/>
                     <span class="notice-span" style="display:block" id="warn_brandlogo">请上传图片，做为品牌的LOGO！</span>
-                    <?php if(!empty($row["logo"])): ?><img src="http://admin.shop.com/Uploads/<?php echo ($row["logo"]); ?>"><?php endif; ?>
+                    <?php if(!empty($row["logo"])): ?><img src="<?php echo ($row["logo"]); ?>"><?php endif; ?>
                 </td>
             </tr>
             <tr>
@@ -60,7 +60,7 @@
             <tr>
                 <td class="label">排序</td>
                 <td>
-                    <input type="text" name="sort" maxlength="40" size="15" value="<?php echo ((isset($row["name"]) && ($row["name"] !== ""))?($row["name"]):50); ?>"/>
+                    <input type="text" name="sort" maxlength="40" size="15" value="<?php echo ((isset($row["sort"]) && ($row["sort"] !== ""))?($row["sort"]):50); ?>"/>
                 </td>
             </tr>
             <tr>
@@ -91,6 +91,7 @@
             'uploader' : '<?php echo U("Upload/index");?>', //上传控制器
             'fileObjName':'logo',    //上传文件名
             'buttonText':'上传',       //更改按键字
+            'multi':false,
             'overrideEvents':['onUploadSuccecc','onUploadError'],
             'onUploadError':function(file,errorCode,errorMsg,errorString){
                 console.debug(arguments);

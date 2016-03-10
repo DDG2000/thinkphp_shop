@@ -22,13 +22,14 @@ class UploadController extends \Think\Controller
         $file = empty($_FILES['logo']['tmp_name']) ? array() : $_FILES['logo'];
         //判断$file 是否存在，存在则上传
         //给$logo赋初值
-        $logo=$msg='';
+        $logo=$msg=$file_info='';
         if ($file) {
             //文件上传，传递数组，传递一个文件uploadOne
             //判断文件上传是否成功，成功后获取拼接$logo值
             if($file_info = $upload->uploadOne($file)){
                 //获取拼接$logo
-                $logo=$file_info['savepath'].$file_info['savename'];
+//                $logo=$file_info['savepath'].$file_info['savename'];
+                $logo=$file_info['url'];//使用七牛云返回的地址
                 $flag=1;   //上传成功
             }else{
                 $msg=$upload->getError();
@@ -39,6 +40,7 @@ class UploadController extends \Think\Controller
           'file_url'=>$logo,
             'msg'=>$msg,
             'status'=>$flag,
+//            'file_info'=>$file_info,
         );
 //        echo json_encode($data);
         $this->ajaxReturn($data);
