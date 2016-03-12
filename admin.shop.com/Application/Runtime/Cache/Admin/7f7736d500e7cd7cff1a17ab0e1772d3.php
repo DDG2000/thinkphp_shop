@@ -48,7 +48,7 @@
                     <input type="hidden" name="logo[]" value="<?php echo ($row["logo"]); ?>" id="logo"><br/>
                     <input type="file"  id="file_upload" name="file_upload" multiple="true"><br/>
                     <span class="notice-span" style="display:block" id="warn_brandlogo">请上传图片，做为品牌的LOGO！</span>
-                    <?php if(!empty($row["logo"])): ?><img src="<?php echo ($row["logo"]); ?>"><?php endif; ?>
+                    <?php if(!empty($row["id"])): ?><img src="<?php echo ($row["logo"]); ?>" id="logo_preview"><?php endif; ?>
                 </td>
             </tr>
             <tr>
@@ -82,7 +82,7 @@
 </div>
 <script type="text/javascript" src="http://admin.shop.com/Public/JS/jquery-1.11.2.js"></script>
 <script type="text/javascript" src="http://admin.shop.com/Public/EXT/uploadify/jquery.uploadify.min.js"></script>
-<script type="text/javascript" src="__LAYER__/layer.js"></script>
+<script type="text/javascript" src="http://admin.shop.com/Public/EXT/layer/layer.js"></script>
 <script type="text/javascript">
     $(function () {
         $(':input[name=status]').val([<?php echo ((isset($row["status "]) && ($row["status "] !== ""))?($row["status "]): 1); ?>]);//状态单选框赋值,回显选中
@@ -100,6 +100,8 @@
             'onUploadSuccess':function(file,data,response){     //执行成功回调函数
 //                data是字符串,要转jason对象
                 data= $.parseJSON(data);                 //见data转换成json对象
+                console.debug(data);
+                $('#logo_preview').val(data.url);
                 if(data.status){                            //判断接送中status值
                     $('#logo').val(data.file_url);          //status成立则给logo标签赋值地址
                 }else{                                          //不成立返回错误信息

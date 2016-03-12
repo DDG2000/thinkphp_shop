@@ -48,8 +48,8 @@
                     <input type="hidden" name="logo[]" value="{$row.logo}" id="logo"><br/>
                     <input type="file"  id="file_upload" name="file_upload" multiple="true"><br/>
                     <span class="notice-span" style="display:block" id="warn_brandlogo">请上传图片，做为品牌的LOGO！</span>
-                    <notempty name="row.logo">
-                        <img src="{$row.logo}">
+                    <notempty name="row.id">
+                        <img src="{$row.logo}" id="logo_preview">
                     </notempty>
                 </td>
             </tr>
@@ -102,6 +102,8 @@
             'onUploadSuccess':function(file,data,response){     //执行成功回调函数
 //                data是字符串,要转jason对象
                 data= $.parseJSON(data);                 //见data转换成json对象
+                console.debug(data);
+                $('#logo_preview').val(data.url);
                 if(data.status){                            //判断接送中status值
                     $('#logo').val(data.file_url);          //status成立则给logo标签赋值地址
                 }else{                                          //不成立返回错误信息

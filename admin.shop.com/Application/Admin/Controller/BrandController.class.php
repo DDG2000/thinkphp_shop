@@ -77,8 +77,10 @@ class BrandController extends \Think\Controller
             $this->success('修改成功', U('index'));
         } else {
             //展示数据表中的数据
+            dump($id);
             $row = $this->_model->find($id);
-//            dump($row);
+//            echo $this->_model->getLastSql();
+            dump($row);
             $this->assign('row', $row);
             $this->display('add');
         }

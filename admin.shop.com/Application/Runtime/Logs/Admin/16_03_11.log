@@ -10,3 +10,123 @@ ERR: 非法操作:__LAYER__
 [ 2016-03-11T00:14:15+08:00 ] 127.0.0.1 /index.php/Brand/__LAYER__/layer.js
 ERR: 非法操作:__LAYER__
 
+[ 2016-03-11T17:58:52+08:00 ] 127.0.0.1 /index.php/Brand/__LAYER__/layer.js
+ERR: 非法操作:__LAYER__
+
+[ 2016-03-11T17:59:03+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T17:59:10+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T17:59:15+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:01:24+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:01:38+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:03:36+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:03:38+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:04:21+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:04:53+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:05:28+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/11.html
+ERR: Think\Controller:getLastAql方法不存在！
+
+[ 2016-03-11T18:06:16+08:00 ] 127.0.0.1 /index.php/Brand/-44
+ERR: 非法操作:-44
+
+[ 2016-03-11T18:06:33+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/7.html
+ERR: Think\Model:getLastAql方法不存在！
+
+[ 2016-03-11T18:06:46+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:07:07+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:07:08+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:07:14+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:07:14+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:07:17+08:00 ] 127.0.0.1 /index.php/Brand/-44
+ERR: 非法操作:-44
+
+[ 2016-03-11T18:07:19+08:00 ] 127.0.0.1 /index.php/Brand/-44
+ERR: 非法操作:-44
+
+[ 2016-03-11T18:07:20+08:00 ] 127.0.0.1 /index.php/Brand/-44
+ERR: 非法操作:-44
+
+[ 2016-03-11T18:07:22+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:07:36+08:00 ] 127.0.0.1 /index.php/Brand/-44
+ERR: 非法操作:-44
+
+[ 2016-03-11T18:07:41+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:08:07+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:08:36+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:08:48+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:09:12+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T18:11:06+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T19:09:52+08:00 ] 127.0.0.1 /index.php/Brand/-44
+ERR: 非法操作:-44
+
+[ 2016-03-11T19:09:58+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-11T19:22:24+08:00 ] 127.0.0.1 /index.php/GoodsCategory/delete.html?id=1&status=0
+ERR: 非法操作:delete
+
+[ 2016-03-11T21:45:30+08:00 ] 127.0.0.1 /
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'asc' in 'order clause'
+
+[ 2016-03-11T21:45:41+08:00 ] 127.0.0.1 /
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'asc' in 'order clause'
+
+[ 2016-03-11T21:45:43+08:00 ] 127.0.0.1 /
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'asc' in 'order clause'
+
+[ 2016-03-11T21:45:43+08:00 ] 127.0.0.1 /
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'asc' in 'order clause'
+
+[ 2016-03-11T21:45:44+08:00 ] 127.0.0.1 /
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'asc' in 'order clause'
+
+[ 2016-03-11T21:45:44+08:00 ] 127.0.0.1 /
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'asc' in 'order clause'
+
+[ 2016-03-11T21:45:45+08:00 ] 127.0.0.1 /
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'asc' in 'order clause'
+
+[ 2016-03-11T21:45:45+08:00 ] 127.0.0.1 /
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'asc' in 'order clause'
+

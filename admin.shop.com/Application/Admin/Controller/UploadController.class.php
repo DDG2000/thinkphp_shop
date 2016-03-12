@@ -40,7 +40,7 @@ class UploadController extends \Think\Controller
           'file_url'=>$logo,
             'msg'=>$msg,
             'status'=>$flag,
-//            'file_info'=>$file_info,
+//          'file_info'=>$file_info,
         );
 //        echo json_encode($data);
         $this->ajaxReturn($data);

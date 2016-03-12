@@ -1,0 +1,12 @@
+[ 2016-03-12T00:04:33+08:00 ] 127.0.0.1 /index.php/GoodsCategory/add.html
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mall.db_mysql' doesn't exist
+
+[ 2016-03-12T00:05:27+08:00 ] 127.0.0.1 /index.php/GoodsCategory/add.html
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mall.db_mysql' doesn't exist
+
+[ 2016-03-12T01:25:24+08:00 ] 127.0.0.1 /index.php/GoodsCategory/add.html
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mall.db_mysql' doesn't exist
+
+[ 2016-03-12T09:02:26+08:00 ] 127.0.0.1 /index.php/GoodsCategory/delete/id/11.html
+ERR: 非法操作:delete
+
