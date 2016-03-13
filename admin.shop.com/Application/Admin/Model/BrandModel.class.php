@@ -72,4 +72,12 @@ class BrandModel extends \Think\Model
         }
         return $this->save();
     }
+
+    /**
+     * 获取品牌列表,只要id,name字段过滤状态不为-1数据
+     * @return mixed
+     */
+    public function getList(){
+        return $this->field('id,name')->where(array('status'=>array('gt',-1)))->select();
+    }
 }

@@ -10,3 +10,15 @@ ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mall.db_mysql' d
 [ 2016-03-12T09:02:26+08:00 ] 127.0.0.1 /index.php/GoodsCategory/delete/id/11.html
 ERR: 非法操作:delete
 
+[ 2016-03-12T12:56:15+08:00 ] 127.0.0.1 /index.php/GoodsCategory/edit.html
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-12T13:11:52+08:00 ] 127.0.0.1 /index.php/GoodsCategory/edit.html
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-12T13:14:15+08:00 ] 127.0.0.1 /index.php/GoodsCategory/edit.html
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-12T13:14:27+08:00 ] 127.0.0.1 /index.php/GoodsCategory/edit.html
+ERR: Think\Model:updateCategory方法不存在！
+

@@ -29,7 +29,7 @@
             <tr>
                 <td class="label">上级分类:</td>
                 <td>
-                    <input type='text' name='parent_name' id="<?php echo ($data["parent_id"]); ?>" disabled="disabled"/>
+                    <input type='text' name='parent_name'  id="parent_name" disabled="disabled"/>
                     <ul style="border: 1px solid #ccc;width:183px" id="tree" class="ztree"></ul>
                     <input type="hidden" name="parent_id" id="parent_id" value=""/>
                 </td>
@@ -56,7 +56,7 @@
             </tr>
         </table>
         <div class="button-div">
-            <input type="hidden" name="<?php echo ($data["id"]); ?>">
+            <input type="hidden" name="id" value="<?php echo ($data["id"]); ?>">
             <input type="submit" value=" 确定 "/>
             <input type="reset" value=" 重置 "/>
         </div>
@@ -73,7 +73,6 @@
 
 <script type="text/javascript">
 
-    $(':input[name=status]').val([<?php echo ((isset($data["status "]) && ($data["status "] !== ""))?($data["status "]): 1); ?>]);//状态单选框赋值,回显选中
     var setting = {
         data: {
             simpleData: {     //参数配置
@@ -91,8 +90,13 @@
     };
     var zNodes =<?php echo ($rows); ?>;
     $(function(){
+    $(':input[name=status]').val([<?php echo ((isset($data["status "]) && ($data["status "] !== ""))?($data["status "]): 1); ?>]);//状态单选框赋值,回显选中
         $obj=$.fn.zTree.init($("#tree"), setting, zNodes);
         $obj.expandAll(true);        //默认全展开
+        <?php if(!empty($data["id"])): ?>var parent_node=$obj.getNodeByParam("id", <?php echo ($data["parent_id"]); ?>);
+        $obj.selectNode(parent_node);
+        $('#parent_id').val(parent_node.id);
+        $('#parent_name').val(parent_node.name);<?php endif; ?>
     });
 </script>
 </body>

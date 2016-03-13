@@ -63,7 +63,7 @@ class GoodsCategoryController extends \Think\Controller
                 $this->error($this->_model->getError());
             }
             //成功后跳转
-            $this->success('添加分类成功',U('index'));
+            $this->success('修改分类成功',U('index'));
         }else{
             $this->_model=D('GoodsCategory');
             $data=$this->_model->find($id);
@@ -73,5 +73,13 @@ class GoodsCategoryController extends \Think\Controller
             $this->assign('rows',$rows);
             $this->display('add');
         }
+    }
+
+    public function delete($id){
+        if($this->_model->deleteCategory($id)===false){
+            $this->error($this->_model->getError());
+        }
+        //成功后跳转
+        $this->success('删除分类成功',U('index'));
     }
 }

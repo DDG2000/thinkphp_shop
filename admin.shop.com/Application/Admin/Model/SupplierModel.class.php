@@ -48,4 +48,8 @@ class SupplierModel extends \Think\Model
         }
        return $this->save($data);
     }
+
+    public function getList(){
+        return $this->field('id,name')->where(array('status'=>array('gt',-1)))->select();
+    }
 }

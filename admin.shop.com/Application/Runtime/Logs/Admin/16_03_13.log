@@ -1,0 +1,12 @@
+[ 2016-03-13T20:36:41+08:00 ] 127.0.0.1 /index.php/Goods/add.html
+ERR: Think\Model:_addContent方法不存在！
+
+[ 2016-03-13T23:03:08+08:00 ] 127.0.0.1 /
+ERR: 模板不存在:E:\shop\admin.shop.com//Application/Admin/View/Goods/index.html
+
+[ 2016-03-13T23:52:16+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/1.html
+ERR: Think\Controller:find方法不存在！
+
+[ 2016-03-13T23:52:38+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/1.html
+ERR: Think\Controller:find方法不存在！
+

@@ -3,7 +3,7 @@ define('DOMAIN', 'http://admin.shop.com');  //定义根目录
 return array(
     //'配置项'=>'配置值'
     'DEFAULT_MODULE' => 'Admin',  // 默认模块
-    'DEFAULT_CONTROLLER' => 'GoodsCategory', // 默认控制器名称
+    'DEFAULT_CONTROLLER' => 'Goods', // 默认控制器名称
     'DEFAULT_ACTION' => 'index', // 默认操作名称
 
     'DB_TYPE' => 'mysql',     // 数据库类型
@@ -34,6 +34,7 @@ return array(
         '__LAYER__' => DOMAIN . '/Public/EXT/layer',  //layer插件路径
         '__ZTREE__' => DOMAIN . '/Public/EXT/ztree',  //ztree插件路径
         '__TREEGRID__' => DOMAIN . '/Public/EXT/treegrid',  //ztree插件路径
+        '__UEDITOR__' => DOMAIN . '/Public/EXT/ueditor',  //ueditor插件路径
     ),
     'PAGE_SIZE' => 3,
     'UPLOAD_SETTING' => array(
