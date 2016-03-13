@@ -42,6 +42,8 @@ class GoodsController extends \Think\Controller
     }
     public function add(){
         if(IS_POST){
+//            var_dump($_POST);
+//            exit;
             if ($this->_model->create() === false) {
                 $this->error($this->_model->getError());
             }

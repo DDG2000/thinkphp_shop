@@ -1,3 +1,76 @@
 [ 2016-03-14T00:56:54+08:00 ] 127.0.0.1 /index.php/Goods/add.html
 ERR: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'sort' at row 1
 
+[ 2016-03-14T02:08:07+08:00 ] 127.0.0.1 /index.php/Goods/add.html
+ERR: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'path' at row 1
+
+[ 2016-03-14T02:09:57+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:13:07+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/3.html
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list'
+
+[ 2016-03-14T02:15:39+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:15:46+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:17:00+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:18:14+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:18:19+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:20:39+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:20:43+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:22:29+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:31:48+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:34:35+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:36:38+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:36:41+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:38:27+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:39:01+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:39:06+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:43:26+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:44:40+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:49:00+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:51:13+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T02:51:16+08:00 ] 127.0.0.1 /index.php/GoodsGallery/delete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002370s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004039s ]
+SQL: SHOW COLUMNS FROM `goods_gallery` [ RunTime:0.0152s ]
+SQL: DELETE FROM `goods_gallery` WHERE `id` = 9 [ RunTime:0.0462s ]
+

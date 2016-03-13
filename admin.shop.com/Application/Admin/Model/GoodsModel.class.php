@@ -16,7 +16,7 @@ class GoodsModel extends \Think\Model
     );
     protected $_auto=array(
         array('inputtime',NOW_TIME),   //自动完成添加时间
-        array('goodstatus','array_sum',self::MODEL_BOTH,'function'), //将数组相加
+        array('goods_status','array_sum',self::MODEL_BOTH,'function'), //将数组相加
 //        array('sn','setSn',self::MODEL_INSERT,'callback'),      //自动生成sn回调方法
     );
 
@@ -44,6 +44,7 @@ class GoodsModel extends \Think\Model
     }
 
     public function addGoods(){
+        unset($this->data['id']);    //添加时不需要id
         $this->startTrans();
         //开启事物,sn赋值就要在事物当中,不用自动完成,自己调用自己,sn有值就是取值,没值就是赋值
         $this->data['sn']=$this->setSn($this->data['sn']);
@@ -62,6 +63,13 @@ class GoodsModel extends \Think\Model
         //保存商品详细信息
         if ($this->_addContent($id) === false) {
             $this->error = '添加商品详情失败';
+            $this->rollback();
+            return false;
+        }
+
+        //执行相册的保存
+        if ($this->_addGallery($id) === false) {
+            $this->error = '添加相册图片失败';
             $this->rollback();
             return false;
         }
@@ -115,6 +123,7 @@ class GoodsModel extends \Think\Model
         $row['is_new']=($row['goods_status'] & 2)?1:0;
         $row['is_hot']=($row['goods_status'] & 4)?1:0;
         $row['content']=M('GoodsIntro')->getFieldByGoodsId($goods_id,'content');
+        $row['paths']= M('GoodsGallery')->field('id,path')->where(array('goods_id'=>$goods_id))->select();
 //        dump($row);
         return $row;
     }
@@ -195,4 +204,6 @@ class GoodsModel extends \Think\Model
         );
         return $this->save($data);
     }
+
+
 }

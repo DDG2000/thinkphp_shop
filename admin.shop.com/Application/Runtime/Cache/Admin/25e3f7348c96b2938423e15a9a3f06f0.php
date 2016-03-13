@@ -5,16 +5,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="http://admin.shop.com/Public/CSS/general.css" rel="stylesheet" type="text/css" />
 <link href="http://admin.shop.com/Public/CSS/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="http://admin.shop.com/Public/CSS/upload.css" />
 <style type="text/css">
-	.upload-pre-item img{
+	.upload-item img{
 		width:150px;
 	}
 
-	.upload-pre-item{
+	.upload-item{
 		display:inline-block;
 	}
 
-	.upload-pre-item a{
+	.upload-item a{
 		position:relative;
 		top:5px;
 		right:15px;
@@ -105,9 +106,9 @@
                 <tr>
                     <td class="label">商品状态：</td>
                     <td>
-                        <input type="checkbox" name="is_best" value="1"  class="goods_status"/> 精品
-                        <input type="checkbox" name="is_new" value="2"  class="goods_status"/> 新品
-                        <input type="checkbox" name="is_hot" value="4"  class="goods_status"/> 热销
+                        <input type="checkbox" name="goods_status[]" value="1"  class="goods_status"/> 精品
+                        <input type="checkbox" name="goods_status[]" value="2"  class="goods_status"/> 新品
+                        <input type="checkbox" name="goods_status[]" value="4"  class="goods_status"/> 热销
                     </td>
                 </tr>
                 <tr>
@@ -138,24 +139,14 @@
                     <td class="label">商品相册：</td>
                     <td>
                         <div class="upload-img-box">
-							<div class="upload-pre-item">
-								<img src="http://admin.shop.com/Public/IMG/goods1.jpg"/>
-								<a href="#">×</a>
-							</div>
-
-							<div class="upload-pre-item">
-								<img src="http://admin.shop.com/Public/IMG/goods2.jpg"/>
-								<a href="#">×</a>
-							</div>
-
-							<div class="upload-pre-item">
-								<img src="http://admin.shop.com/Public/IMG/goods3.jpg"/>
-								<a href="#">×</a>
-							</div>
+                            <?php if(is_array($row["paths"])): foreach($row["paths"] as $key=>$path): ?><div class="upload-item">
+                                    <img src="<?php echo ($path["path"]); ?>-150"/>
+                                    <a href="#" data='<?php echo ($path["id"]); ?>' class='delete_gallery'>×</a>
+                                </div><?php endforeach; endif; ?>
 						</div>
 
 						<div>
-							<input type="file" />
+							<input type="file" id="file_upload"/>
 						</div>
                     </td>
                 </tr>
@@ -176,12 +167,13 @@
 版权所有 &copy; 2005-2012 上海商派网络科技有限公司，并保留所有权利。</div>
 
 <link rel="stylesheet" type="text/css" href="http://admin.shop.com/Public/EXT/ztree/css/zTreeStyle/zTreeStyle.css" />
-<script type="text/javascript" src="http://admin.shop.com/Public/EXT/ztree/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="http://admin.shop.com/Public/JS/jquery-1.11.2.js"></script>
 <script type="text/javascript" src="http://admin.shop.com/Public/EXT/ztree/js/jquery.ztree.core.js"></script>
 <script type="text/javascript" src="http://admin.shop.com/Public/EXT/layer/layer.js"></script>
 <script type="text/javascript" src="http://admin.shop.com/Public/EXT/ueditor/ueditor.my.config.js"></script>
 <script type="text/javascript" src="http://admin.shop.com/Public/EXT/ueditor/ueditor.all.min.js"></script>
 <script type="text/javascript" src="http://admin.shop.com/Public/EXT/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="http://admin.shop.com/Public/EXT/uploadify/jquery.uploadify.min.js"></script>
 
 <script type="text/javascript">
 
@@ -196,8 +188,8 @@
             },
             callback: {       //回调函数
                 onClick: function(event, treeId, treeNode){
-                    $('#goods_categoty_id').val(treeNode.id);      //返回id
-                    $('#goods_categoty_name').val(treeNode.name);  //返回父级名
+                    $('#goods_category_id').val(treeNode.id);      //返回id
+                    $('#goods_category_name').val(treeNode.name);  //返回父级名
                 },
                 beforeClick:function(treeid,tree_node){
                     if(tree_node.isParent){
@@ -231,6 +223,64 @@
                 $('#goods_category_name').val(category_node.name);
             <?php else: ?>
             $('.is_on_sale').val([1]);<?php endif; ?>
+
+
+
+            $('#file_upload').uploadify({
+                'swf'      : 'http://admin.shop.com/Public/EXT/uploadify/uploadify.swf',
+                'uploader' : '<?php echo U("Upload/index");?>', //上传控制器
+                'fileObjName':'logo',    //上传文件名
+                'buttonText':'上传',       //更改按键字
+        //            'multi':false,        //批量上传
+                'overrideEvents':['onUploadSuccecc','onUploadError'],   //重写回调函数
+                'onUploadError':function(file,errorCode,errorMsg,errorString){
+                },
+                'onUploadSuccess':function(file,data,response){     //执行成功回调函数
+        //                data是字符串,要转jason对象
+                    data= $.parseJSON(data);                 //见data转换成json对象
+                    $('#logo_preview').val(data.url);
+                    if(data.status){                            //判断接送中status值
+//                        $('#logo').val(data.file_url);          //status成立则给logo标签赋值地址
+                        var file_url = data.file_url;
+                        //添加一个div节点,存放图片预览
+                        html = '<div class="upload-item"><img src="'+file_url+'"/><a href="#" class="delete_gallery">×</a><input type="hidden" name="path[]" value="'+file_url+'"/></div>';
+                        $(html).appendTo('.upload-img-box');
+                        //添加隐藏域,用于保存文件的路径
+                        layer.msg('上传成功',{icon:6,time:1000});
+                    }else{                                          //不成立返回错误信息
+//                        alert(data.msg);
+                        layer.msg(data.msg,{icon:5,time:1000});
+                    }
+
+                }
+            });
+
+            //事件绑定,当点击×的时候,移除图片节点,如果已经存到数据库中,就删除记录
+            $('.upload-img-box').on('click','.delete_gallery',function(){
+                console.debug(this);
+                var ele_node = $(this);
+                var id = ele_node.attr('data');
+                var url = '<?php echo U("GoodsGallery/delete");?>';
+                var flag = true;
+                if(id){
+                    var data = {id:id};
+                    //执行ajax操作,发送相册图片id
+                    $.post(url,data,function(response){
+                        //是否删除成功
+                        if(!response.status){
+                            flag = false;
+                        }
+                    });
+                }
+                //如果删除成功就移除节点,并且提示成功
+                if(flag){
+                    ele_node.parent().remove();
+                    layer.msg('删除成功',{icon:6,time:1000});
+                }else{
+                    layer.msg('删除失败',{icon:5,time:1000});
+                }
+                return false;
+            });
     });
 </script>
 </body>
