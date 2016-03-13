@@ -90,8 +90,8 @@ class GoodsModel extends \Think\Model
     //排序
     //过滤已删除
     public function getPageResult(array $cond=array(),$page=1){
-        $count=$this->where($cond)->where('status<>-1')->count();
-        $rows=$this->where($cond)->where('status<>-1')->order('sort asc')->page($page,C('PAGE_SIZE'))->select();
+        $count=$this->where($cond)->where('status<>0')->count();
+        $rows=$this->where($cond)->where('status<>0')->order('sort asc')->page($page,C('PAGE_SIZE'))->select();
         $page=new \Think\Page($count,C('PAGE_SIZE'));
         $page->setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
         $page_html=$page->show();
@@ -182,5 +182,17 @@ class GoodsModel extends \Think\Model
             return $model->addAll($data);
         }
         return true;
+    }
+
+    /**
+     * 删除指定的商品
+     * @param type $goods_id
+     */
+    public function deleteGoods($goods_id) {
+        $data = array(
+            'id'     => $goods_id,
+            'status' => 0,
+        );
+        return $this->save($data);
     }
 }

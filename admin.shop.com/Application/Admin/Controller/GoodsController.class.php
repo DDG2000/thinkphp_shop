@@ -81,4 +81,16 @@ class GoodsController extends \Think\Controller
         //获取产品分类列表,返回到模板的js代码,需要json字符串,用json_encode转换
         $this->assign('goods_category_list',json_encode(D('GoodsCategory')->getList()));
     }
+
+    /**
+     * 删除商品
+     * @param integer $id.
+     */
+    public function delete($id) {
+        if ($this->_model->deleteGoods($id) === false) {
+            $this->error($this->_model->getError());
+        } else {
+            $this->success('删除成功', U('index'));
+        }
+    }
 }
