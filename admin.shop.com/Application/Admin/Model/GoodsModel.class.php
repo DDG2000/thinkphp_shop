@@ -11,6 +11,23 @@ namespace Admin\Model;
 
 class GoodsModel extends \Think\Model
 {
+    /**商品推荐状态
+     * @var array
+     */
+    public  $goods_status=array(
+        1=>'精品',
+        2=>'新品',
+        4=>'热销',
+    );
+
+    /**
+     * 商品上架状态
+     * @var array
+     */
+    public $is_on_sales = array(
+        1=>'上架',
+        0=>'下架',
+    );
     protected $_validate=array(
         array('sn','','货号已存在',self::EXISTS_VALIDATE,'unique',self::MODEL_INSERT),
     );
@@ -92,25 +109,28 @@ class GoodsModel extends \Think\Model
         return $model->add($data)!==false;
     }
 
-    //获取列表
-    //分页
-    //搜索
-    //排序
-    //过滤已删除
-    public function getPageResult(array $cond=array(),$page=1){
-        $count=$this->where($cond)->where('status<>0')->count();
-        $rows=$this->where($cond)->where('status<>0')->order('sort asc')->page($page,C('PAGE_SIZE'))->select();
-        $page=new \Think\Page($count,C('PAGE_SIZE'));
-        $page->setConfig('theme','%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
-        $page_html=$page->show();
-        //增加元素
-        foreach($rows as $key=>$value){
-            $value['is_best']=($value['goods_status'] & 1)?1:0;
-            $value['is_new']=($value['goods_status'] & 2)?1:0;
-            $value['is_hot']=($value['goods_status'] & 4)?1:0;
-            $rows[$key]=$value;
+    /**
+     * 获取分页商品信息
+     * @param array $cond
+     * @param type $page
+     */
+    public function getPageResult(array $cond = array(), $page = 1) {
+        $count     = $this->where($cond)->where('status<>0')->count();
+        $rows      = $this->where($cond)->where('status<>0')->order('sort asc')->page($page, C('PAGE_SIZE'))->select();
+        $page      = new \Think\Page($count, C('PAGE_SIZE'));
+        $page->setConfig('theme', '%HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
+        $page_html = $page->show();
+
+        /**
+         * 增加了新品 热销 精品的元素
+         */
+        foreach ($rows as $key => $value) {
+            $value['is_best'] = ($value['goods_status'] & 1) ? 1 : 0;
+            $value['is_new']  = ($value['goods_status'] & 2) ? 1 : 0;
+            $value['is_hot']  = ($value['goods_status'] & 4) ? 1 : 0;
+            $rows[$key]       = $value;
         }
-        return array('page_html'=>$page_html,'rows'=>$rows);
+        return array('page_html' => $page_html, 'rows' => $rows);
     }
 
     /**

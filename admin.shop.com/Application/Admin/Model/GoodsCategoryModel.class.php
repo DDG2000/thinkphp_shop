@@ -11,11 +11,11 @@ namespace Admin\Model;
 
 class GoodsCategoryModel extends \Think\Model
 {
-    public function getList(){
+    public function getList($field='*'){
         $cond=array(
           'status'=>array('gt',-1),
         );
-        return $this->where($cond)->order(array('lft asc'))->select();
+        return $this->field($field)->where($cond)->order(array('lft asc'))->select();
     }
 
     /**

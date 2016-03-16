@@ -3,7 +3,7 @@ define('DOMAIN', 'http://admin.shop.com');  //定义根目录
 return array(
     //'配置项'=>'配置值'
     'DEFAULT_MODULE' => 'Admin',  // 默认模块
-    'DEFAULT_CONTROLLER' => 'Goods', // 默认控制器名称
+    'DEFAULT_CONTROLLER' => 'Menu', // 默认控制器名称
     'DEFAULT_ACTION' => 'index', // 默认操作名称
 
     'DB_TYPE' => 'mysql',     // 数据库类型

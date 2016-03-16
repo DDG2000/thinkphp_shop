@@ -1,0 +1,33 @@
+[ 2016-03-15T16:47:17+08:00 ] 127.0.0.1 /index.php/Menu/index.html
+ERR: 无法加载控制器:Menu
+
+[ 2016-03-15T16:47:39+08:00 ] 127.0.0.1 /index.php/Menu/index
+ERR: 无法加载控制器:Menu
+
+[ 2016-03-15T16:47:47+08:00 ] 127.0.0.1 /index.php/Admin/Menu/index
+ERR: 非法操作:Menu
+
+[ 2016-03-15T16:49:01+08:00 ] 127.0.0.1 /index.php/Admin/Admin/index
+ERR: 非法操作:Admin
+
+[ 2016-03-15T16:49:12+08:00 ] 127.0.0.1 /index.php/Admin/Role/index
+ERR: 非法操作:Role
+
+[ 2016-03-15T17:00:35+08:00 ] 127.0.0.1 /
+ERR: 无法加载控制器:Menu
+
+[ 2016-03-15T17:03:54+08:00 ] 127.0.0.1 /
+ERR: Think\Model:getList方法不存在！
+
+[ 2016-03-15T17:03:56+08:00 ] 127.0.0.1 /
+ERR: Think\Model:getList方法不存在！
+
+[ 2016-03-15T17:04:56+08:00 ] 127.0.0.1 /
+ERR: 模板不存在:E:\shop\admin.shop.com//Application/Admin/View/Menu/index.html
+
+[ 2016-03-15T17:04:57+08:00 ] 127.0.0.1 /
+ERR: 模板不存在:E:\shop\admin.shop.com//Application/Admin/View/Menu/index.html
+
+[ 2016-03-15T17:04:58+08:00 ] 127.0.0.1 /
+ERR: 模板不存在:E:\shop\admin.shop.com//Application/Admin/View/Menu/index.html
+

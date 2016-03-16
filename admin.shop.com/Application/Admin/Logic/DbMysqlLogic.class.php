@@ -69,7 +69,7 @@ class DbMysqlLogic implements DbMysql{
         foreach($sqls as $key=>$value){
             $sql.=$value.$args[$key];
         }
-        echo $sql;
+//        echo $sql;
         return M()->execute($sql);  //执行一条sql语句
         // TODO: Implement query() method.
     }

@@ -78,6 +78,6 @@ class BrandModel extends \Think\Model
      * @return mixed
      */
     public function getList(){
-        return $this->field('id,name')->where(array('status'=>array('gt',-1)))->select();
+        return $this->where(array('status'=>array('gt',-1)))->getField('id,id,name');
     }
 }

@@ -74,3 +74,25 @@ INFO: [ app_begin ] --END-- [ RunTime:0.004039s ]
 SQL: SHOW COLUMNS FROM `goods_gallery` [ RunTime:0.0152s ]
 SQL: DELETE FROM `goods_gallery` WHERE `id` = 9 [ RunTime:0.0462s ]
 
+[ 2016-03-14T09:14:15+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T09:18:54+08:00 ] 127.0.0.1 /index.php/Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-14T09:19:33+08:00 ] 127.0.0.1 /index.php/GoodsGallery/delete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001737s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003030s ]
+SQL: SHOW COLUMNS FROM `goods_gallery` [ RunTime:0.0165s ]
+SQL: DELETE FROM `goods_gallery` WHERE `id` = 5 [ RunTime:0.0483s ]
+
+[ 2016-03-14T13:38:34+08:00 ] 127.0.0.1 /
+ERR: 模板不存在:E:\shop\admin.shop.com//Application/Admin/View/Permission/index.html
+
+[ 2016-03-14T17:45:05+08:00 ] 127.0.0.1 /
+ERR: 模板不存在:E:\shop\admin.shop.com//Application/Admin/View/Permission/index.html
+
+[ 2016-03-14T22:19:04+08:00 ] 127.0.0.1 /
+ERR: Think\Model:getFieid方法不存在！
+
