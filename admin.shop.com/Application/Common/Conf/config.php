@@ -21,9 +21,13 @@ return array(
     'DB_RW_SEPARATE' => false,       // 数据库读写是否分离 主从式有效
     'DB_MASTER_NUM' => 1, // 读写分离后 主服务器数量
     'DB_SLAVE_NO' => '', // 指定从服务器序号
+
     'SHOW_PAGE_TRACE' => true,
-    'PAGE_SIZE' => 3,
+
     'URL_MODEL' => 1,       // URL访问模式,可选参数0、1、2、3,代表以下四种模式：
+
+    'PAGE_SIZE' => 3,
+
     'TMPL_PARSE_STRING' => array(
         '__CSS__' => DOMAIN . '/Public/CSS',
         '__JS__' => DOMAIN . '/Public/JS',
@@ -36,7 +40,6 @@ return array(
         '__TREEGRID__' => DOMAIN . '/Public/EXT/treegrid',  //ztree插件路径
         '__UEDITOR__' => DOMAIN . '/Public/EXT/ueditor',  //ueditor插件路径
     ),
-    'PAGE_SIZE' => 3,
     'UPLOAD_SETTING' => array(
 //        'mimes' => array('image/jpeg', 'image/png', 'image/gif'), //允许上传的文件MiMe类型
         'maxSize' => 2 * 1024 * 1024, //上传的文件大小限制 (0-不做限制)
