@@ -119,7 +119,7 @@
                     );<?php endif; ?>
         
                 //展开所有的ztree节点
-                ztree_obj.expandAll(true);
+                ztree_obj.expandAll(false);
             });
         </script>
     </body>

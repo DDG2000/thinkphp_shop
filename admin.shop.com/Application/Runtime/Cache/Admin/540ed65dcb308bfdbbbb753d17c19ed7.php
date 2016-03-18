@@ -43,7 +43,7 @@
                     <tr>
                         <td class="label">路径:</td>
                         <td>
-                            <input type="text" name='path'  value="<?php echo ($row["path"]); ?>" size="30" />
+                            <input type="text" name='url'  value="<?php echo ($row["url"]); ?>" size="30" />
                         </td>
                     </tr>
                     <tr>

@@ -62,3 +62,86 @@ function onearr2select(array $data, $name = '', $selected_value = '') {
 function my_mcrypt($string,$salt){
     return md5(md5($string).$salt);
 }
+
+/**
+ * 保存和获取用户的session信息
+ */
+function login($data=null){
+    if($data){
+        session('userinfo',$data);
+    }else{
+        $userinfo=session('userinfo');
+        if(!$userinfo){
+            $userinfo=array();
+        }
+       return $userinfo;
+    }
+}
+
+/**
+ * 生成令牌.
+ * @param type $len
+ * @return type
+ */
+function createToken($len = 32){
+    $token = mcrypt_create_iv($len);
+    $token = base64_encode($token);
+    $token = substr($token,0,$len);
+    return $token;
+}
+
+/**
+ * 获取或者保存token信息
+ * @param array|null $data
+ * @return array|null
+ */
+function token($data=null){
+    if(is_null($data)){
+        $token = cookie('token');
+        if(!$token){
+            $token=array();
+        }else{
+            $token=unserialize($token);
+        }
+        return $token;
+
+    }else{
+        $data = serialize($data);
+        cookie('token',$data,604800);//存7天
+
+    }
+}
+
+/**保存和获取用户可以操作的路径session
+ * @param null $data
+ * @return mixed
+ */
+function paths($data=null){
+    if($data){
+        session('paths',$data);
+    }else{
+        $paths= session('paths');
+        if(!$paths){
+            $paths=array();
+        }
+        return $paths;
+    }
+}
+
+/**
+ * 保存和获取用户可以操作的权限id
+ *
+ * @param null $data
+ * @return mixed
+ */
+function pids($data=null){
+    if($data){
+        session('pids',$data);
+    }else{
+        $pids= session('pids');
+        if(!$pids){
+            $pids=array();
+        }
+        return $pids;
+    }
+}

@@ -38,7 +38,8 @@
                 <td align="center">{$row.last_login_time|date="Y-m-d H:i:s",###}</td>
                 <td align="center">
                     <a href="{:U('edit',array('id'=>$row['id']))}" title="编辑">编辑</a> |
-                    <a href="{:U('delete',array('id'=>$row['id']))}" title="移除">移除</a> 
+                    <a href="{:U('delete',array('id'=>$row['id']))}" title="移除">移除</a> |
+                    <a href="{:U('resetPwd',array('id'=>$row['id']))}" title="重置">重置密码</a>
                 </td>
             </tr>
             </foreach>

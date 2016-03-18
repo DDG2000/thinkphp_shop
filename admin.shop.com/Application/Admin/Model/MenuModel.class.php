@@ -59,7 +59,10 @@ class MenuModel extends \Think\Model {
                 'permission_id'=>$permission_id,
             );
         }
-        return M('MenuPermission')->addAll($data);
+
+       return $rst = M('MenuPermission')->addAll($data);
+//        var_dump($rst);
+//        exit;
     }
 
     /**
@@ -172,5 +175,22 @@ class MenuModel extends \Think\Model {
         }
         return $row;
     }
+
+    //获取当前管理员可见的菜单
+    public function getAdminMenu(){
+        //取出所有的菜单列表
+        $pids=pids();
+        if(!$pids){
+            return array();
+        }
+        $cond=array(
+            'mp.permission_id'=>array('in',$pids),
+            'status'=>array('gt',0),
+        );
+
+        $rows= $this->field('distinct id,name,level,parent_id,url')->alias('as m')->join('left join __MENU_PERMISSION__ as mp on m.id=mp.menu_id')->where($cond)->select();
+        return $rows;
+    }
+
 
 }

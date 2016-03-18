@@ -153,4 +153,16 @@ class RoleModel extends \Think\Model {
         return M('RolePermission')->where($cond)->delete();
     }
 
+    /**
+     *
+     * @param $admin_id
+     */
+    public function getAdminRolePermission($admin_id){
+        $cond=array(
+            'admin_id'=>$admin_id,
+            'path'=>array('neq',''),
+        );
+        $rows= $this->field('distinct id,path')->table('__ROLE_PERMISSION__ as rp')->join('left join __PERMISSION__ as p on rp.permission_id=p.id')->join('left join __ADMIN_ROLE__ as ar on ar.role_id=rp.role_id')->where($cond)->select();
+       return $rows;
+    }
 }

@@ -68,7 +68,7 @@ class GoodsController extends \Think\Controller
         //3.获取商品分类列表
 
         $goods_category_list = index2assoc(D('GoodsCategory')->getList('id,name'),'id');
-        dump($goods_category_list);
+//        dump($goods_category_list);
         $this->assign('goods_category_list', $goods_category_list);
         //商品状态
         $this->assign('goods_status_list', $this->_model->goods_status);
@@ -92,7 +92,7 @@ class GoodsController extends \Think\Controller
             $this->display();
         }
     }
-    public function edit($id){
+    public function edit(){
         if(IS_POST){
             if ($this->_model->create() === false) {
                 $this->error($this->_model->getError());

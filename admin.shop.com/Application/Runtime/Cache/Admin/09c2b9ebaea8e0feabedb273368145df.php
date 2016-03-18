@@ -37,7 +37,8 @@
                 <td align="center"><?php echo (date("Y-m-d H:i:s",$row["last_login_time"])); ?></td>
                 <td align="center">
                     <a href="<?php echo U('edit',array('id'=>$row['id']));?>" title="编辑">编辑</a> |
-                    <a href="<?php echo U('delete',array('id'=>$row['id']));?>" title="移除">移除</a> 
+                    <a href="<?php echo U('delete',array('id'=>$row['id']));?>" title="移除">移除</a> |
+                    <a href="<?php echo U('resetPwd',array('id'=>$row['id']));?>" title="重置">重置密码</a>
                 </td>
             </tr><?php endforeach; endif; ?>
             <tr>
