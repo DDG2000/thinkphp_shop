@@ -26,7 +26,7 @@ return array(
 
     'URL_MODEL' => 1,       // URL访问模式,可选参数0、1、2、3,代表以下四种模式：
 
-    'PAGE_SIZE' => 3,
+    'PAGE_SIZE' => 10,
 
     'TMPL_PARSE_STRING' => array(
         '__CSS__' => DOMAIN . '/Public/CSS',

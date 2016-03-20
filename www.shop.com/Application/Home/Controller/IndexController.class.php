@@ -2,7 +2,34 @@
 namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
+    //初始化自动完成，分派数据显示标题,实例化模型
+    //自动实例化模型
+//    private $_model=null;
+    protected function _initialize(){
+        //标题数组
+        $meta_title=array(
+            'index'=>'京西商城',
+            'goods'=>'商品详情',
+        );
+        //方法不在数组中，默认为商品管理
+        $meta_title=isset($meta_title[ACTION_NAME])?$meta_title[ACTION_NAME]:'京西商城';
+        //绑定数据
+        $this->assign('meta_title',$meta_title);
+        //初始化自动实例化Goods模型
+//        $this->_model=D('Index');
+        $model=D('GoodsCategory');
+        $this->assign('goods_categories',$model->getAllCategory());
+        //获取页脚的文章
+        $article_list=D('Article')->getHelpArticleList();
+//        dump($article_list);
+        $this->assign('article_list',$article_list);
+    }
+    //首页
     public function index(){
-        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover,{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
+     $this->display();
+    }
+
+    public function goods(){
+        $this->display();
     }
 }

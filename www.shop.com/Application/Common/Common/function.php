@@ -2,23 +2,20 @@
 function sendSMS($telephone,$param){
     vendor('Alidayu.Autoloader');
     $c = new \TopClient;
+    $c->format='json';
     $c->appkey = '23328842';
     $c->secretKey = 'dcafdaa14e5c2584f6b8f9bd0307a0b1';
     $req = new \AlibabaAliqinFcSmsNumSendRequest;
     $req->setSmsType("normal");
     $req->setSmsFreeSignName("顺丰快递");
-
-//    $param=array(
-//        'code'=>\Org\Util\String::randString(1000,9999),
-//        'product'=>'京西商城'
-//    );
     $param=json_encode($param);
 
     $req->setSmsParam($param);
     $req->setRecNum($telephone);
-    $req->setSmsTemplateCode("SMS_5590023");
+    $req->setSmsTemplateCode("SMS_6365005");
     $resp = $c->execute($req);
-
+    var_dump($resp);
+    exit;
     if(isset($resp->result->success) && $resp->result->success=='true'){
         return true;
     }else{
@@ -31,15 +28,18 @@ function sendSMS($telephone,$param){
  * @return array|mixed|null
  */
 function tel_code($data=null){
+
     //如果$data为空,取的验证码电话信息
     if(is_null($data)){
         $data=session('tel_code');
+        var_dump(session('tel_code'));
         //如果取得的值为空,赋空值
         if(!$data){
             $data=array();
         }
         return $data;
     }else{
+        var_dump($data);
         //如果有值传入,赋值
         session('tel_code',$data);
     }

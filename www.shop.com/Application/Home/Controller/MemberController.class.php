@@ -32,6 +32,8 @@ class MemberController extends \Think\Controller
             if($this->_model->create()===false){
                 $this->error($this->_model->getError());
             }
+//            var_dump($this->data['salt']);
+//            exit;
             if ($this->_model->addMember() === false) {
                 $this->error($this->_model->getError());
             }
@@ -58,7 +60,7 @@ class MemberController extends \Think\Controller
         $code=\Org\Util\String::randNumber(1000,9999);
         $param=array(
             'code'=>$code,
-            'product'=>'京西商城',
+            'product'=>'顺丰快递',
         );
         //如果发送成功,将验证码存到session中
         if(sendSMS($telephone,$param)){
@@ -66,9 +68,8 @@ class MemberController extends \Think\Controller
                 'code'=>$code,
                 'telephone'=>$telephone,
             );
-//            var_dump($data);
+            login($data);
             tel_code($data);
-//            var_dump(tel_code());
             $return=array(
                 'status'=>1,
             );
@@ -78,6 +79,7 @@ class MemberController extends \Think\Controller
             );
         }
         $this->ajaxReturn($return);
+        $this->ajaxReturn(tel_code());
         exit;
     }
 }

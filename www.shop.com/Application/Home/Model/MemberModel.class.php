@@ -54,7 +54,9 @@ class MemberModel extends \Think\Model
      * @return mixed
      */
     public function addMember(){
+        var_dump($this->data['salt']);
+        exit;
         $this->data['password']=my_mcrypt($this->data['password'],$this->data['salt']);
-       return $this->add();
+        return $this->add();
     }
 }

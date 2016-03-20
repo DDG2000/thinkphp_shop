@@ -33,7 +33,7 @@
                 <th>ID</th>
                 <th>文章名称</th>
                 <th>文章分类</th>
-                <th>文章简介</th>
+                <th style="width: 400px">文章简介</th>
                 <th>排序</th>
                 <th>是否显示</th>
                 <th>录入时间</th>
@@ -47,7 +47,7 @@
                 <td align="center">{$row.intro}</td>
                 <td align="center">{$row.sort}</td>
                 <td align="center"><img src="__IMG__/{$row.status}.gif" onclick="change_status({$row.id},1-{$row.status})"/></td>
-                <td align="center">{$row.inputtime}</td>
+                <td align="center">{$row.inputtime|date='Y-m-d',###}</td>
                 <td align="center">
                     <a href="{:U('edit',array('id'=>$row['id']))}" >编辑</a> |
                     <a href="{:U('delete',array('id'=>$row['id']))}" >移除</a>
