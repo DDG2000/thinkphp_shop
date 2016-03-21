@@ -11,7 +11,7 @@
 		</div>
 		<div class="login_bd">
 			<div class="login_form fl">
-				<form action="" method="post" id="signup">
+				<form action="{:U('register')}" method="post" id="signup">
 					<ul>
 						<li>
 							<label for="">用户名：</label>
@@ -46,7 +46,7 @@
 						<li class="checkcode">
 							<label for="">验证码：</label>
 							<input type="text"  name="checkcode" /><span class="error_msg"></span>
-							<img src="{:U('Verify/verify',array('t'=>NOW_TIME))}" alt="" />
+							<img src="{:U('Verify/verify',array('t'=>NOW_TIME))}" alt="" onclick="change_captcha(this)" />
 							<span>看不清？<a href="">换一张</a></span>
 						</li>
 						
@@ -77,6 +77,10 @@
 <block name="js">
 	<js href="__JQUERY_VALIDATION__/jquery.validate.min.js" />
 	<script type="text/javascript">
+		function change_captcha(img_ele){
+			var url="{:U('Verify/verify')}?t="+new Date().getTime();
+			img_ele.src=url;
+		}
 		function bindPhoneNum(){
 			$('#get_captcha').prop('disabled',true);
 			//发送短信验证码
@@ -85,16 +89,11 @@
 			var data={
 				telephone:$('#tel').val(),
 			};
-			console.debug(data);
 			$.getJSON(url,data,function(response){
-
+				console.debug(response);
 			});
-
-
-			//启用输入框
-//			$('#captcha').prop('readonly',false);
-
 			var time=60;
+			//定时器1s
 			var interval = setInterval(function(){
 				time--;
 				if(time<=0){
@@ -105,7 +104,6 @@
 					var html = time + ' 秒后再次获取';
 					$('#get_captcha').prop('disabled',false);
 				}
-				
 				$('#get_captcha').val(html);
 			},1000);
 		}
@@ -160,8 +158,8 @@
 				},
 				messages: {
 					username: {
-						required: '用户名不能为空',     //必填
-						rangelength: '长度必须是6-20位',//长度
+						required: '用户名不能为空',
+						rangelength: '长度必须是6-20位',
 						//ajax验证是否重复
 						remote:'用户名已存在',
 					},

@@ -18,7 +18,7 @@ class MemberModel extends \Think\Model
     );
 
     protected $_auto=array(
-        array('salt','\Org\Util\String::randNumber(1000,9999);',self::MODEL_INSERT,'function',array(4)),
+        array('salt','\Org\Util\String::randString',self::MODEL_INSERT,'function',array(4)),
         array('add_time',NOW_TIME,self::MODEL_INSERT),
 
     );
@@ -31,10 +31,9 @@ class MemberModel extends \Think\Model
     protected function checkTelCode($tel_code){
         $telephone = I('post.tel');
         $session_data = tel_code();
-        var_dump(tel_code());
         tel_code(array());//销毁数据,避免下次还可以使用这个验证码
-        exit;
-        if($session_data['telephone']==$telephone && $session_data['code'] == $tel_code){
+        if($session_data['telephone']==$telephone &&
+            $session_data['code'] == $tel_code){
             return true;
         }else{
             return false;
@@ -54,9 +53,48 @@ class MemberModel extends \Think\Model
      * @return mixed
      */
     public function addMember(){
-        var_dump($this->data['salt']);
-        exit;
-        $this->data['password']=my_mcrypt($this->data['password'],$this->data['salt']);
+        $this->data['password']=my_mcrypt(
+            $this->data['password'],$this->data['salt']);
         return $this->add();
+    }
+
+    public function login(){
+        //验证验证码
+        $captcha=I('post.checkcode');
+        $verify=new \Think\Verify;
+        if($verify->check($captcha)===false){
+            $this->error='验证码错误';
+            return false;
+        }
+        //验证有户名和密码是否为空
+
+        $username=I('post.username');
+        $password=I('post.password');
+        if(empty($username)||empty($password)){
+            $this->error='用户或密码为空';
+            return false;
+        }
+        //验证是否有此用户
+        $userinfo=$this->where(array('username'=>$username))->find();
+        if(empty($userinfo)){
+            $this->error='用户不存在';
+            return false;
+        }
+        //验证密码是否匹配
+        $salt=$userinfo['salt'];
+        $password=my_mcrypt($password,$salt);
+        if($userinfo['password']!=$password){
+            $this->error='密码错误';
+            return false;
+        }
+        //记录用户最后登录的时间和ip
+        $data=array(
+            'id'=>$userinfo['id'],
+            'last_login_time'=>NOW_TIME,
+            'last_login_ip'=>get_client_ip(1),
+        );
+        //保存用户信息>>1更新用户信息
+        $this->save($data);
+        return $userinfo;
     }
 }

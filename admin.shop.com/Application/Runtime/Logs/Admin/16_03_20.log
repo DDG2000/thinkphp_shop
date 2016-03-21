@@ -1,0 +1,15 @@
+[ 2016-03-20T15:56:01+08:00 ] 127.0.0.1 /index.php/Brand/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2016-03-20T16:01:10+08:00 ] 127.0.0.1 /index.php/Goods/add.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2' for key 'PRIMARY'
+
+[ 2016-03-20T16:01:39+08:00 ] 127.0.0.1 /index.php/Goods/add.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3' for key 'PRIMARY'
+
+[ 2016-03-20T16:07:36+08:00 ] 127.0.0.1 /index.php/Goods/add.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '7' for key 'PRIMARY'
+
+[ 2016-03-20T16:09:01+08:00 ] 127.0.0.1 /index.php/Goods/add.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '8' for key 'PRIMARY'
+

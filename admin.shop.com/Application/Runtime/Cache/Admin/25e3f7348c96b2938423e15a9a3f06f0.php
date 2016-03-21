@@ -154,7 +154,7 @@
 
 			
             <div class="button-div">
-                <input type="hidden" value="<?php echo ($row["id"]); ?>" name="id">
+                <?php if(!empty($row)): ?><input type="hidden" value="<?php echo ($row["id"]); ?>" name="id"><?php endif; ?>
                 <input type="submit" value=" 确定 " class="button"/>
                 <input type="reset" value=" 重置 " class="button" />
             </div>
@@ -202,7 +202,7 @@
         var zNodes =<?php echo ($goods_category_list); ?>;   //准备节点数据
 //            $(':input[name=status]').val([<?php echo ((isset($data["status "]) && ($data["status "] !== ""))?($data["status "]): 1); ?>]); //状态单选框赋值,回显选中
             $obj=$.fn.zTree.init($("#tree"), setting, zNodes);   //zTree 初始化方法，创建 zTree 必须使用此方法
-            $obj.expandAll(true);        //默认全展开
+            $obj.expandAll(false);        //默认全展开
         <?php if(!empty($row)): ?>$('.brand_id').val([<?php echo ($row["brand_id"]); ?>]);
             $('.supplier_id').val([<?php echo ($row["supplier_id"]); ?>]);
             $('.is_on_sale').val([<?php echo ($row["is_on_sale"]); ?>]);

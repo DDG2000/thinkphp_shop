@@ -158,7 +158,9 @@
 
 			
             <div class="button-div">
+                <notempty name="row">
                 <input type="hidden" value="{$row.id}" name="id">
+                </notempty>
                 <input type="submit" value=" 确定 " class="button"/>
                 <input type="reset" value=" 重置 " class="button" />
             </div>
@@ -206,7 +208,7 @@
         var zNodes ={$goods_category_list};   //准备节点数据
 //            $(':input[name=status]').val([{$data.status |default= 1}]); //状态单选框赋值,回显选中
             $obj=$.fn.zTree.init($("#tree"), setting, zNodes);   //zTree 初始化方法，创建 zTree 必须使用此方法
-            $obj.expandAll(true);        //默认全展开
+            $obj.expandAll(false);        //默认全展开
         <notempty name='row'>
             $('.brand_id').val([{$row.brand_id}]);
             $('.supplier_id').val([{$row.supplier_id}]);

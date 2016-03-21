@@ -132,13 +132,13 @@ d
 		<div class="goods_content fl mt10 ml10">
 			<!-- 商品概要信息 start -->
 			<div class="summary">
-				<h3><strong>ThinkPad X230(23063T4）12.5英寸笔记本（i5-3230M 8GB 500G HD4000 指纹蓝牙 WIN8PRC 一年质保）</strong></h3>
+				<h3><strong>{$row.name}</strong></h3>
 				
 				<!-- 图片预览区域 start -->
 				<div class="preview fl">
 					<div class="midpic">
-						<a href="__IMG__/preview_l1.jpg" class="jqzoom" rel="gal1">   <!-- 第一幅图片的大图 class 和 rel属性不能更改 -->
-							<img src="__IMG__/preview_m1.jpg" alt="" />               <!-- 第一幅图片的中图 -->
+						<a href="{$logo}-l1" class="jqzoom" rel="gal1">   <!-- 第一幅图片的大图 class 和 rel属性不能更改 -->
+							<img src="{$logo}-m1" alt="" />               <!-- 第一幅图片的中图 -->
 						</a>
 					</div>
 	
@@ -148,49 +148,19 @@ d
 						<a href="javascript:;" id="backward" class="off"></a>
 						<a href="javascript:;" id="forward" class="on"></a>
 						<div class="smallpic_wrap">
-							<ul>
+						<ul>
+							<foreach name="row.gallery" item="pic">
+							<eq name="key" value="0">
 								<li class="cur">
-									<a class="zoomThumbActive" href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: '__IMG__/preview_m1.jpg',largeimage: '__IMG__/preview_l1.jpg'}"><img src="__IMG__/preview_s1.jpg"></a>
+									<a class="zoomThumbActive" href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: '{$pic}-m1',largeimage: '{$pic}-l1'}"><img src="{$pic}-s1"></a>
 								</li>
-								<li>
-									<a href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: '__IMG__/preview_m2.jpg',largeimage: '__IMG__/preview_l2.jpg'}"><img src="__IMG__/preview_s2.jpg"></a>
+								<else/>
+								<li class="cur">
+									<a  href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: '{$pic}-m1',largeimage: '{$pic}-l1'}"><img src="{$pic}-s1"></a>
 								</li>
-								<li>
-									<a href="javascript:void(0);" 
-									rel="{gallery: 'gal1', smallimage: '__IMG__/preview_m3.jpg',largeimage: '__IMG__/preview_l3.jpg'}">  
-	    							<img src="__IMG__/preview_s3.jpg"></a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" 
-									rel="{gallery: 'gal1', smallimage: '__IMG__/preview_m4.jpg',largeimage: '__IMG__/preview_l4.jpg'}">  
-	    							<img src="__IMG__/preview_s4.jpg"></a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" 
-									rel="{gallery: 'gal1', smallimage: '__IMG__/preview_m5.jpg',largeimage: '__IMG__/preview_l5.jpg'}">  
-	    							<img src="__IMG__/preview_s5.jpg"></a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" 
-									rel="{gallery: 'gal1', smallimage: '__IMG__/preview_m6.jpg',largeimage: '__IMG__/preview_l6.jpg'}">  
-	    							<img src="__IMG__/preview_s6.jpg"></a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" 
-									rel="{gallery: 'gal1', smallimage: '__IMG__/preview_m7.jpg',largeimage: '__IMG__/preview_l7.jpg'}">  
-	    							<img src="__IMG__/preview_s7.jpg"></a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" 
-									rel="{gallery: 'gal1', smallimage: '__IMG__/preview_m8.jpg',largeimage: '__IMG__/preview_l8.jpg'}">  
-	    							<img src="__IMG__/preview_s8.jpg"></a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" 
-									rel="{gallery: 'gal1', smallimage: '__IMG__/preview_m9.jpg',largeimage: '__IMG__/preview_l9.jpg'}">  
-	    							<img src="__IMG__/preview_s9.jpg"></a>
-								</li>
-							</ul>
+							</eq>
+							</foreach>
+						</ul>
 						</div>
 						
 					</div>
@@ -200,9 +170,9 @@ d
 				<!-- 商品基本信息区域 start -->
 				<div class="goodsinfo fl ml10">
 					<ul>
-						<li><span>商品编号： </span>971344</li>
-						<li class="market_price"><span>定价：</span><em>￥6399.00</em></li>
-						<li class="shop_price"><span>本店价：</span> <strong>￥6299.00</strong> <a href="">(降价通知)</a></li>
+						<li><span>商品编号： </span>{$row.sn}</li>
+						<li class="market_price"><span>定价：</span><em>￥{$row.market_price}</em></li>
+						<li class="shop_price"><span>本店价：</span> <strong>￥{$row.shop_price}</strong> <a href="">(降价通知)</a></li>
 						<li><span>上架时间：</span>2012-09-12</li>
 						<li class="star"><span>商品评分：</span> <strong></strong><a href="">(已有21人评价)</a></li> <!-- 此处的星级切换css即可 默认为5星 star4 表示4星 star3 表示3星 star2表示2星 star1表示1星 -->
 					</ul>
@@ -252,39 +222,20 @@ d
 					<div class="introduce detail_div none">
 						<div class="attr mt15">
 							<ul>
-								<li><span>商品名称：</span>ThinkPadX230(2306 3T4）</li>
-								<li><span>商品编号：</span>979631</li>
-								<li><span>品牌：</span>联想（Thinkpad）</li>
-								<li><span>上架时间：</span>2013-09-18 17:58:12</li>
-								<li><span>商品毛重：</span>2.47kg</li>
-								<li><span>商品产地：</span>中国大陆</li>
-								<li><span>显卡：</span>集成显卡</li>
-								<li><span>触控：</span>非触控</li>
-								<li><span>厚度：</span>正常厚度（>25mm）</li>
-								<li><span>处理器：</span>Intel i5</li>
-								<li><span>尺寸：</span>12英寸</li>
+								<li><span>商品名称：</span>{$row.name}</li>
+								<li><span>商品编号：</span>{$row.sn}</li>
+								<li><span>品牌：</span>{$row.brand_name}</li>
+								<li><span>上架时间：</span>{$row.inputtime|date="Y-m-d H:i:s",###}</li>
 							</ul>
 						</div>
 
 						<div class="desc mt10">
+							{$row.content}
 							<!-- 此处的内容 一般是通过在线编辑器添加保存到数据库，然后直接从数据库中读出 -->
-							<img src="__IMG__/desc1.jpg" alt="" />
+							<foreach name="row.gallery" item="pic">
+							<img src="{$pic}-l1" alt="" />
 							<p style="height:10px;"></p>
-							<img src="__IMG__/desc2.jpg" alt="" />
-							<p style="height:10px;"></p>
-							<img src="__IMG__/desc3.jpg" alt="" />
-							<p style="height:10px;"></p>
-							<img src="__IMG__/desc4.jpg" alt="" />
-							<p style="height:10px;"></p>
-							<img src="__IMG__/desc5.jpg" alt="" />
-							<p style="height:10px;"></p>
-							<img src="__IMG__/desc6.jpg" alt="" />
-							<p style="height:10px;"></p>
-							<img src="__IMG__/desc7.jpg" alt="" />
-							<p style="height:10px;"></p>
-							<img src="__IMG__/desc8.jpg" alt="" />
-							<p style="height:10px;"></p>
-							<img src="__IMG__/desc9.jpg" alt="" />
+							</foreach>>
 						</div>
 					</div>
 					<!-- 商品介绍 end -->
